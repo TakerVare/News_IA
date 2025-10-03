@@ -5,12 +5,9 @@
   text-align: center;
 }
 
-/* Agregamos estilos para el contenedor de cards */
-#root > div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+h1 {
+  margin-bottom: 2rem;
+  color: #646cff;
 }
 
 .logo {
@@ -19,9 +16,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -42,6 +41,78 @@
 }
 
 /*********************************************/
+/* ESTILOS DEL BUSCADOR */
+/*********************************************/
+
+.buscador {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(100, 108, 255, 0.1);
+  border-radius: 12px;
+}
+
+.buscador form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.buscador input[type="text"] {
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  min-width: 250px;
+  background-color: white;
+  color: #213547;
+}
+
+.buscador input[type="text"]:focus {
+  outline: none;
+  border-color: #646cff;
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.1);
+}
+
+.buscador select {
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  background-color: white;
+  color: #213547;
+  cursor: pointer;
+  min-width: 180px;
+}
+
+.buscador select:focus {
+  outline: none;
+  border-color: #646cff;
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.1);
+}
+
+.buscador button {
+  padding: 0.6em 2em;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buscador button:hover {
+  background-color: #535bf2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.4);
+}
+
+/*********************************************/
+/* ESTILOS DE LAS CARDS DE NOTICIAS */
+/*********************************************/
 
 .card {
   padding: 10px;
@@ -49,20 +120,13 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: rgb(255, 255, 255);
   font-family: sans-serif;
-  margin: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
-/* From Uiverse.io by Yaya12085 */ 
-.card {
-  padding: 10px;
-  max-width: 260px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  background-color: rgb(255, 255, 255);
-  font-family: sans-serif;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
 }
 
 .content {
@@ -95,6 +159,7 @@
   padding: 2px 8px;
   border-radius: 4px;
   color: #fff;
+  font-size: 0.85rem;
 }
 
 .date {
@@ -102,19 +167,24 @@
   font-size: 0.75rem;
   line-height: 1rem;
   align-items: center;
-  margin: 2px;
+  margin: 10px 0;
+  color: #666;
 }
 
 .title {
   display: block;
-  font-size: 1.25rem;
-  line-height: 1.35rem;
+  font-size: 1.15rem;
+  line-height: 1.4rem;
   font-weight: 600;
-  padding-bottom: 5px;
-  padding-top: 14px;
-  white-space: nowrap;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  color: #213547;
+  min-height: 2.8rem;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .desc {
@@ -123,19 +193,42 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.375;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1rem;
+  min-height: 4.5rem;
 }
 
-.buscador select {
-  padding: 0.6em 1.2em;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin: 0 10px;
-  font-size: 1em;
-  background-color: white;
+.action {
+  display: inline-block;
+  color: #646cff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.buscador select:focus {
-  outline: none;
-  border-color: #646cff;
+.action:hover {
+  color: #535bf2;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .buscador form {
+    flex-direction: column;
+  }
+
+  .buscador input[type="text"],
+  .buscador select {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
 }
