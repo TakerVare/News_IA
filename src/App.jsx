@@ -19,7 +19,7 @@ function App() {
       ],
       ignoreSourceGroupUri: "paywall/paywalled_sources",
       articlesPage: 1,
-      articlesCount: 10,
+      articlesCount: 3,
       articlesSortBy: "date",
       articlesSortByAsc: false,
       dataType: [
